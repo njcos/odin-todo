@@ -1,0 +1,351 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica", sans-serif
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 20rem;
+    border-right: 1px solid rgb(237, 237, 237);
+    background-color: rgb(253, 253, 253);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.main-panel {
+    flex: 2;
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+ul {
+    list-style: none;
+    width: 80%;
+    height: 100%;
+    padding-bottom: 2rem; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: .5rem;
+    /* margin-bottom: 2rem; */
+    backgound-color: green;
+    border-bottom: 1px solid black;
+    overflow: scroll;
+}
+
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+}
+
+.logo-container > img {
+    width: 4.5rem;
+}
+.logo-container > h1 {
+    color: rgb(46, 53, 47);
+    font-weight: 100;
+}
+
+.add-button {
+    width: 80%;
+    height: 4rem;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border-radius: .5rem;
+    margin-top: 2rem;
+    transition: background-color .2s
+}
+
+.add-button:hover {
+    background-color: #6ebb40;
+    transition: background-color .2s;
+    
+}
+
+.add-button > p {
+    font-size: 1rem;
+    color: rgb(46, 53, 47);
+    transition: background-color .2s;
+}
+.add-button:hover > p {
+    color: white;
+    transition: color .2s
+}
+
+
+.project-list-container{
+    width: 100%;
+    padding: 2rem;
+}
+.project {
+    list-style: none;
+    padding: .5rem;
+    margin-top: .5rem;
+}
+.project:first-child{
+    margin-top: 0;
+}
+
+.title-container {
+    width: 80%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: .25rem;
+    border-top: 1px solid rgb(237, 237, 237);
+    border-bottom: 1px solid rgb(237, 237, 237);
+}
+
+.title-container > h2 {
+    padding: 1rem;
+    background-color: rgba(0,0,0,0);
+    color: rgb(46, 53, 47);
+    border-radius: .5rem;
+    font-weight: 100;
+    transition: color .2s;
+    transition: background-color .2s;
+}
+
+.title-container > h2:hover {
+    color: white;
+    background-color: #6ebb40;
+    transition: background-color .2s;
+    transition: color .2s;
+    cursor: pointer;
+}
+
+.title-container>.active {
+    background-color: #6ebb40;
+    color: white;
+
+
+}
+
+.add-item-div{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.add-item-button{
+    padding: .5rem 1rem .5rem 1rem;
+    background-color: rgb(237,237,237);
+    border: none;
+    border-radius: .5rem;
+    transition: all .2s;
+
+
+}
+.add-item-button:hover{
+    padding: .5rem 1rem .5rem 1rem;
+    background-color: #6ebb40;
+    color: white;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+/* #All-Items{
+    display: flex;
+
+} */
+
+
+.overlay {
+    display: none; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+
+}
+.disabled {
+    color: grey;
+}
+
+.add-item-overlay {
+    display: none; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+
+}
+
+.add-item-panel {
+    width: 80%;
+    background-color: rgb(253, 253, 253);
+    border: 1px solid rgb(237, 237, 237);
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.add-item-input-label {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    color: rgb(180, 180, 180)
+
+}
+
+.add-item-panel > input {
+    border: 1px solid rgb(237, 237, 237);
+    border-radius: .5rem;
+    height: 2rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.add-item-panel > select {
+    border: 1px solid rgb(237, 237, 237);
+    border-radius: .5rem;
+    height: 2.25rem;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+
+.add-item-panel > textarea {
+    border: 1px solid rgb(237, 237, 237);
+    border-radius: .5rem;
+    height: 5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    backgound-position-x: 50%;
+    position: relative;
+}
+
+.add-item-panel > button {
+    height: 2rem;
+    width: 10rem;
+    border: none;
+    border-radius: .5rem;
+}
+ .add-item-panel > button:hover {
+    background-color: #6ebb40;
+    color: white;
+    transition: background-color .2s;
+ }
+
+ .add-item-panel-header {
+    display: flex;
+    width: 100%;
+    height: 4rem;
+    justify-content: space-between;
+    align-items: center;
+ }
+
+ .add-item-panel-header > img {
+    width: 3rem;
+ }
+
+ .add-item-panel-header > img:hover {
+    cursor: pointer
+ }
+
+.new-project-panel{
+    width: 80%;
+    background-color: rgb(253, 253, 253);
+    border: 1px solid rgb(237, 237, 237);
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.new-project-panel > input {
+    border: 1px solid rgb(237, 237, 237);
+    border-radius: .5rem;
+    height: 2rem;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.new-project-panel > button {
+    height: 2rem;
+    width: 10rem;
+    border: none;
+    border-radius: .5rem;
+}
+ .new-project-panel > button:hover {
+    background-color: #6ebb40;
+    color: white;
+    transition: background-color .2s;
+ }
+
+ .new-project-panel-header {
+    display: flex;
+    width: 100%;
+    height: 4rem;
+    justify-content: space-between;
+    align-items: center;
+ }
+
+ .new-project-panel-header > img {
+    width: 3rem;
+ }
+
+ .new-project-panel-header > img:hover {
+    cursor: pointer
+ }
+
+ .item-container {
+    display: flex;
+    flex-direction: row;
+    height: 3rem;
+    width: 100%;
+    gap: 2rem;
+    justify-content: space-between;
+    padding: 2rem;
+    align-items: center;
+    border: 1px solid rgb(237, 237, 237);
+    border-radius: .5rem;
+    overflow-y: hidden;
+    overflow-x: scroll;
+ }
+
+ .item-container > p {
+    white-space: nowrap;
+ }
+
+ .complete-container {
+    display: flex;
+    gap: .5rem;
+ }
