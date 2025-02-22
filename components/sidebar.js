@@ -9,6 +9,7 @@ const titleContainer = document.createElement('div')
 const allLists = document.createElement('h2')
 allLists.textContent="All Lists"
 allLists.className="list-button"
+allLists.classList.add("all")
 allLists.id = "selected"
 titleContainer.className="title-container"
 titleContainer.appendChild(allLists)

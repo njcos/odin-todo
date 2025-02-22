@@ -1,4 +1,3 @@
-import { formatDistanceToNowStrict } from "date-fns"
 import trashIcon from "../imgs/trash.svg"
 import { localSidebar } from "./localSidebar"
 
@@ -23,26 +22,51 @@ function localList(project) {
     ul.appendChild(header)
     main.appendChild(ul)
     localSidebar(project)
+    // const allLists = document.querySelectorAll('.all-lists')
+    // for(let i = 0; i<allLists.length; i++) {
+    //     allLists[i].style.display = "none"
+    // }
+    // const
+    // selectedList.style.display="flex"
+    // previouslySelected.removeAttribute('id')
+    // target.id="selected"
+
 
     trash.addEventListener("click", (e) => {
-        const listItemToRemove = e.target.previousSibling.textContent
-        const domItemToRemove = e.target.parentNode.parentNode
         const storage = localStorage.getItem('listItem')
         const storageArray = JSON.parse(storage)
-        const sidebarItems = document.getElementsByClassName('.list-button')
-        for(let i = 0; i < storageArray.length; i++){
-            console.log(storageArray[i])
-
-            if(listItemToRemove === `${storageArray[i].project}`){
-                console.log(storageArray.indexOf(storageArray[i]))
-                storageArray.splice(storageArray.indexOf(storageArray[i]), 1)
-                    localStorage.setItem('listItem', JSON.stringify(storageArray))
-                    
-                }
+        console.log(storageArray)
+        const listItemToRemove = e.target.previousSibling.textContent
+        const listIndex = []
+        const domItemToRemove = e.target.parentNode.parentNode
+        const sidebarItems = document.querySelectorAll('.list-button')
+        storageArray.forEach((item)=>{
+            if(item.project === listItemToRemove){
+                listIndex.push(storageArray.indexOf(item))
             }
-            console.log(domItemToRemove)
-            main.removeChild(domItemToRemove)
-            // location.reload()
+        })
+        listIndex.reverse()
+        for(let i = 0; i<listIndex.length; i++){
+            storageArray.splice(listIndex[i], 1)
+        }
+        localStorage.setItem('listItem', JSON.stringify(storageArray))
+        main.removeChild(domItemToRemove)
+        console.log(titleContainer)
+        sidebarItems.forEach((item) => {
+            if(item.textContent === listItemToRemove){
+                console.log(item.textContent)
+                console.log(listItemToRemove)
+                titleContainer.removeChild(item)
+            }
+            item.removeAttribute('id')
+            const allLists = document.querySelectorAll('.all-lists')
+            const all = document.querySelector('.all')
+            all.id="selected"
+            for(let i = 0; i<allLists.length; i++) {
+                allLists[i].style.display = "flex"
+                }
+    
+        })
 
     })
 }
