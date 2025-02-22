@@ -1,6 +1,7 @@
-import { project, List} from "./project"
+import { List} from "./project"
 import closeIcon from "../imgs/close.svg"
-
+import { addItem } from "./listItem"
+const listStorage = []
 const main = document.querySelector('.main-panel')
 const button = document.createElement('button')
 const addItemDiv =document.createElement('div')
@@ -92,18 +93,27 @@ notes.addEventListener('input', (e) => {
 })
 
 submitButton.addEventListener('click', () => {
-    overlay.style.display = "none"
-    List.name = itemName
-    List.date = date.value
-    List.priority = select.value
-    List.notes = itemNote
-    console.log(List)
+    if(List.project !== undefined) {
 
-    project.addItem(itemName, date.value, select.value, itemNote)
-    input.value = ""
-    notes.value = ""
-    date.value = ""
-    select.value = select.options[0].value
+        overlay.style.display = "none"
+        List.id = Math.floor(Math.random()*10000)
+        List.name = itemName
+        List.date = date.value
+        List.priority = select.value
+        List.notes = itemNote
+        const storedLists = localStorage.getItem('listItem');
+        let itemArray = storedLists ? JSON.parse(storedLists) : [];
+        itemArray.push(List);
+        localStorage.setItem('listItem', JSON.stringify(itemArray));
+
+        addItem(List.project, List.name, List.date, List.priority, List.notes, List.id)
+        input.value = ""
+        notes.value = ""
+        date.value = ""
+        select.value = select.options[0].value
+    } else {
+        alert("No Project!")
+    }
 })
 
 

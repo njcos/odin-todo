@@ -1,6 +1,8 @@
 import closeIcon from "../imgs/close.svg"
-import { project, List } from "./project"
-
+import { List } from "./project"
+// import { CreateList } from "./createList"
+// import { addItem } from "./listItem"
+import { localList } from "./localList"
 
 const overlay = document.createElement('div')
 const panel = document.createElement('div')
@@ -22,7 +24,6 @@ panel.appendChild(input)
 panel.appendChild(button)
 overlay.appendChild(panel)
 document.body.appendChild(overlay)
-
 closeButton.addEventListener('click', () => {
     overlay.style.display="none"
 })
@@ -38,16 +39,18 @@ input.addEventListener('keypress', (e) => {
     }
 })
 button.addEventListener('click', () => {
-    new project(outputString)
     List.project = outputString
-    console.log(List)
+    // List.id = Math.floor(Math.random()*1000)
+    localList(outputString)
+    // CreateList()
+    // SidebarProjectButtons()
     overlay.style.display="none"
     input.value="";
 })
 
 overlay.addEventListener('click', (e) => {
     if(e.target.classList.contains('overlay')){
-        console.log(e.target)
+        // console.log(e.target)
         overlay.style.display="none"
     }
 })

@@ -1,4 +1,3 @@
-import { project } from "./project"
 import { NewProject } from "./addProjectPanel"
 
 const addButton = document.createElement('button')
@@ -10,10 +9,6 @@ addButton.appendChild(buttonText)
 
 addButton.addEventListener('click', () => {
     NewProject()
-    // const input = prompt("check")
-
-    // new project(input)
-
     
 })
 
