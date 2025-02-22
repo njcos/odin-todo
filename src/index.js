@@ -1,9 +1,8 @@
 import "./styles.css"
 import { sidebar } from "../components/sidebar"
 import { AddItem } from "../components/addItem"
-import { project } from "../components/project"
-
+import { load } from "../components/localLoad"
 
 sidebar()
 AddItem()
-new project("All Items")
+load()
